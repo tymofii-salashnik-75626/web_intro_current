@@ -1,0 +1,23 @@
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  margin: 0;
+  padding: 40px;  
+  color: #333;
+  background: #2e8b57; 
+}
+
+header, footer {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+section {
+  background: white;
+  margin-bottom: 30px;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px black solid;
+}
+
+

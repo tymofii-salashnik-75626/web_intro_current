@@ -4,11 +4,17 @@
   <meta charset="UTF-8">
   <title>CV Tymofii Salashnik</title>
 
-  <link rel="stylesheet" href="red.css">
+  <link id="theme-link" rel="stylesheet" href="red.css">
   <!-- <link rel="stylesheet" href="green.css"> -->
+  <script src="script.js"></script>
 </head>
 
 <body>
+<div style="margin: 20px; text-align: center;">
+      <button id="theme-switcher" onclick="toggleTheme()">Zmiana motywa</button>
+      <button id="section-toggler" onclick="toggleSection()">Ukryj Projekty</button>
+  </div>
+
   <header>
       <h1>Tymofii Salashnik</h1>
       <img src="my_photo.jpg" width="200" alt="Moje zdjęcie" />
@@ -66,7 +72,7 @@
       </ol>
     </section>
 
-    <section>
+    <section id="projects-section">
       <h2>Projekty</h2>
       <ul>
         <li>Projekt Nr 1: "Kalkulator Indywidualny", Wprowadzenie do programowania</li>
@@ -81,5 +87,6 @@
   <footer>
     <p><b>Copyright (c) Salashnik Tymofii, 2026</b></p>
   </footer>
+
 </body>
 </html>

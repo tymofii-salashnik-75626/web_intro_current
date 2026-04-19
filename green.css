@@ -20,4 +20,32 @@ section {
   border: 1px black solid;
 }
 
+.contact-section {
+  margin-top: 20px;
+  padding: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-sizing: border-box; 
+  margin-top: 5px;
+}
+
+
+.submit-btn {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: black; 
+  color: white;
+  
+}
+
 

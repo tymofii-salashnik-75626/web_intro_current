@@ -21,3 +21,55 @@ function toggleSection() {
         btn.innerHTML = 'Pokaż Projekty'
     }
 }
+
+function validateForm(event) {
+    // Zapobieganie przesyłaniu formularza
+    event.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const surname = document.getElementById('surname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const feedback = document.getElementById('form-feedback');
+
+    // Czyszczenie poprzednich wiadomości
+    feedback.innerHTML = "";
+    let errors = [];
+
+    // Walidacja pól wymaganych 
+    if (!name || !surname || !email || !message) {
+        errors.push("Wszystkie pola są wymagane.");
+    }
+
+    // Walidacja pola imię i nazwisko: nie mogą zawierać cyfr
+    const digitRegex = /\d/;
+    if (digitRegex.test(name)) {
+        errors.push("Imię nie może zawierać cyfr.");
+    }
+    if (digitRegex.test(surname)) {
+        errors.push("Nazwisko nie może zawierać cyfr.");
+    }
+
+    // Walidacja poprawności adresu e-mail
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        errors.push("Proszę podać poprawny adres e-mail.");
+    }
+
+    // Czytelne komunikaty błędów dla użytkownika
+    if (errors.length > 0) {
+        feedback.style.color = "red";
+        feedback.innerHTML = errors.join("<br>");
+        return false;
+    }
+
+    // Jeśli wszystko jest dobrze
+    feedback.style.color = "green";
+    feedback.innerHTML = "Wiadomość została wysłana pomyślnie!";
+    
+    // Czyszczenie formy
+    document.getElementById('contact-form').reset();
+    return true;
+}
+
+

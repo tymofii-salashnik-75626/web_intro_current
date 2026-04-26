@@ -1,0 +1,15 @@
+{
+  "skills": [
+    "C# - umiejętności podstawowe",
+    "MSSQL - umiejętności podstawowe",
+    "Python - umiejętności podstawowe",
+    "HTML - umiejętności bazowe",
+    "Microsoft Office - użytkownik zaawansowany"
+  ],
+  "projects": [
+    "Projekt Nr 1: 'Kalkulator Indywidualny', Wprowadzenie do programowania",
+    "Projekt Nr 2: 'Analizator Indywidualny', Wprowadzenie do programowania",
+    "Projekt Nr 3: 'Automat Vendingowy', Wprowadzenie do programowania",
+    "Baza danych dla sklepa internetowego, Wprowadzenie do baz danych"
+  ]
+}

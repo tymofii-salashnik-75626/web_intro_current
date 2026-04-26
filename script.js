@@ -72,4 +72,35 @@ function validateForm(event) {
     return true;
 }
 
+async function loadDynamicContent() {
+    try {
+        // Ładowanie danych z JSON
+        const response = await fetch('data.json');
+        if (!response.ok) throw new Error('Błąd ładowania danych');
+        
+        const data = await response.json();
 
+        // Uzupełnianie listy umiejętności
+        populateList('dynamic-skills-list', data.skills);
+
+        // Uzupełnianie listy projektów
+        populateList('dynamic-projects-list', data.projects);
+        
+
+    } catch (error) {
+        console.error("Wystąpił błąd:", error);
+    }
+}
+
+function populateList(id, list) {
+        const elem = document.getElementById(id);
+        list.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            elem.appendChild(li);
+        });
+
+}
+
+//Wywołanie funkcji podczas ładowania strony
+loadDynamicContent();

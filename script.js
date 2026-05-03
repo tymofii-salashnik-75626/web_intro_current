@@ -102,5 +102,54 @@ function populateList(id, list) {
 
 }
 
-//Wywołanie funkcji podczas ładowania strony
-loadDynamicContent();
+
+
+// Funkcja ładowania projektów z LocalStorage podczas uruchamiania
+function loadLocalStorageProjects() {
+    const listElem = document.getElementById('local-projects-list');
+    listElem.innerHTML = ''; // Czyszczenie listy przed renderowaniem
+
+    // Pobieramy dane z LocalStorage (jeśli ich nie ma, tworzymy pustą tablicę)
+    const storedProjects = JSON.parse(localStorage.getItem('userProjects')) || [];
+
+    storedProjects.forEach((project, index) => {
+        const li = document.createElement('li');        
+        li.innerHTML = `
+          ${project}
+            <button onclick="deleteProject(${index})" class="usuwanie">[Usuń]</button>
+        `;
+        listElem.appendChild(li);
+    });
+}
+
+// Funkcja dodawania nowego elementu
+function addNewProject() {
+    const input = document.getElementById('new-project-input');
+    const projectText = input.value.trim();
+
+    if (projectText === "") {
+        alert("Wpisz nazwę projektu!");
+        return;
+    }
+
+    const storedProjects = JSON.parse(localStorage.getItem('userProjects')) || [];
+    storedProjects.push(projectText); // Dodawanie nowego projektu do tablicy
+
+    localStorage.setItem('userProjects', JSON.stringify(storedProjects)); // Zapisz z powrotem do pamięci lokalnej
+    input.value = ''; 
+    loadLocalStorageProjects(); // Odświeżanie listy na stronie
+}
+
+// Usuwanie elementu
+function deleteProject(index) {
+    const storedProjects = JSON.parse(localStorage.getItem('userProjects')) || [];
+    storedProjects.splice(index, 1); // Usuwanie elementu według indeksu
+    localStorage.setItem('userProjects', JSON.stringify(storedProjects));
+    loadLocalStorageProjects(); 
+}
+
+
+window.onload = function() {
+    loadDynamicContent(); 
+    loadLocalStorageProjects(); 
+};

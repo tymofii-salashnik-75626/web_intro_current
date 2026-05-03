@@ -10,14 +10,14 @@
 </head>
 
 <body>
-<div style="margin: 20px; text-align: center;">
-      <button id="theme-switcher" onclick="toggleTheme()">Zmiana motywa</button>
-      <button id="section-toggler" onclick="toggleSection()">Ukryj Projekty</button>
+  <div style="margin: 20px; text-align: center;">
+    <button id="theme-switcher" onclick="toggleTheme()">Zmiana motywa</button>
+    <button id="section-toggler" onclick="toggleSection()">Ukryj Projekty</button>
   </div>
 
   <header>
-      <h1>Tymofii Salashnik</h1>
-      <img src="my_photo.jpg" width="200" alt="Moje zdjęcie" />
+    <h1>Tymofii Salashnik</h1>
+    <img src="my_photo.jpg" width="200" alt="Moje zdjęcie" />
   </header>
   
   <main>
@@ -40,10 +40,9 @@
     </section>
 
     <section>
-  <h2>Umiejętności</h2>
-  <ul id="dynamic-skills-list">
-    </ul>
-</section>
+      <h2>Umiejętności</h2>
+      <ul id="dynamic-skills-list"></ul>
+    </section>
 
     <section>
       <h2>Doświadczenie</h2>
@@ -52,8 +51,8 @@
         <p>Tworzenie aplikacji konsolowych oraz prostych baz danych w ramach zajęć na uczelni</p>
       </article>
       <article>
-      <h3>Samokształcenie w zakresie IT</h3>
-      <p>Aktywne poszerzanie wiedzy z zakresu programowania</p>
+        <h3>Samokształcenie w zakresie IT</h3>
+        <p>Aktywne poszerzanie wiedzy z zakresu programowania</p>
       </article>
     </section>
 
@@ -67,35 +66,42 @@
       </ol>
     </section>
 
-   <section id="projects-section">
-  <h2>Projekty</h2>
-  <ul id="dynamic-projects-list">
-    </ul>
-</section>
-  
-  <section class="contact-section">
-  <h2>Napisz do mnie</h2>
-  <form id="contact-form" onsubmit="return validateForm(event)">
-    <div class="form-group">
-      <label for="name">Imię:</label><br>
-      <input type="text" id="name" name="name" required minlength="3">
-    </div>
-     <div class="form-group">
-      <label for="surname">Nazwisko:</label><br>
-      <input type="text" id="surname" name="surname" required minlength="3">
-    </div>
-    <div class="form-group">
-      <label for="email">E-mail:</label><br>
-      <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="message">Wiadomość:</label><br>
-      <textarea id="message" name="message" rows="3" required></textarea>
-    </div>
-    <button type="submit" class="submit-btn">Wyślij wiadomość</button>
-  </form>
-  <p id="form-feedback"></p>
-</section>
+    <section id="projects-section">
+      <h2>Projekty</h2>
+      <ul id="dynamic-projects-list">/ul>
+    </section>
+    <section id="local-storage-section">
+      <h2>Zarządzanie Projektami</h2>
+      <div class="form-group">
+        <label for="new-project-input">Dodaj nowy projekt:</label>
+        <input type="text" id="new-project-input" placeholder="Wpisz nazwę...">
+        <button onclick="addNewProject()" class="submit-btn" style="margin-top: 10px;">Dodaj do listy</button>
+      </div>
+      <ul id="local-projects-list" style="margin-top: 20px;"></ul>
+    </section>
+    <section class="contact-section">
+      <h2>Napisz do mnie</h2>
+      <form id="contact-form" onsubmit="return validateForm(event)">
+        <div class="form-group">
+          <label for="name">Imię:</label><br>
+          <input type="text" id="name" name="name" required minlength="3">
+        </div>
+        <div class="form-group">
+          <label for="surname">Nazwisko:</label><br>
+          <input type="text" id="surname" name="surname" required minlength="3">
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail:</label><br>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Wiadomość:</label><br>
+          <textarea id="message" name="message" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Wyślij wiadomość</button>
+      </form>
+      <p id="form-feedback"></p>
+    </section>
   </main>
 
   <footer>

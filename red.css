@@ -54,6 +54,20 @@ input, textarea {
   
 }
 
+#local-projects-list li {
+  padding: 10px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  list-style: none;
+}
+
+.usuwanie {
+  color: red; 
+  cursor: pointer; 
+  border: none; 
+  background: none;
+}
+
 
 
 

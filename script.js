@@ -63,12 +63,46 @@ function validateForm(event) {
         return false;
     }
 
-    // Jeśli wszystko jest dobrze
-    feedback.style.color = "green";
-    feedback.innerHTML = "Wiadomość została wysłana pomyślnie!";
-    
-    // Czyszczenie formy
-    document.getElementById('contact-form').reset();
+    // Przygotowanie obiektu JSON do wysłania
+    const formData = {
+        name: name,
+        surname: surname,
+        email: email,
+        message: message,
+    };
+
+    // Adres URL bazy danych
+    const firebaseUrl = "https://webintroproject-default-rtdb.europe-west1.firebasedatabase.app/messages.json";
+
+    // Wysłanie danych poza przeglądarkę użytkownika za pomocą Fetch API
+    fetch(firebaseUrl, {
+        method: 'POST', // Użycie wymaganej metody POST
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData) // Konwersja obiektu JS na format JSON
+    })
+    .then(response => {
+        if (!response.ok) {
+            feedback.style.color = "red";
+            feedback.innerHTML = "Błąd serwera podczas zapisywania danych.";
+        }
+
+        return response.json();
+    })
+    .then(data => {
+        // Potwierdzenie pomyślnego zapisu danych na serwerze
+        feedback.style.color = "green";
+        feedback.innerHTML = `Wiadomość została zapisana na serwerze (id: ${data.name})!`;
+        // Czyszczenie formy
+        document.getElementById('contact-form').reset();
+    })
+    .catch(error => {
+        // Obsługa błędów sieciowych lub błędów Firebase
+        feedback.style.color = "red";
+        feedback.innerHTML = `Wystąpił błąd: ${error.message}`;
+    });    
+
     return true;
 }
 
